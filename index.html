@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/v4-shims.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="icon" href="./img/logo.svg">
+    <title>Management</title>
+</head>
+
+<body>
+    <nav class=" navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="content-header">
+            <a class="navbar-brand" href="#">
+                <img class="logo" src="./img/logo.svg" alt="logo">
+
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Điểm danh</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Phòng chat</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Quản lí</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="social">
+            <a href="#"><span class="fab fa-facebook icon-social" style="color: #4267b2"></span></a>
+            <a href="#"><span class="fab fa-youtube icon-social " style="color: #EA4335"></span></a>
+            <a href="#"><span class="fab fa-twitter icon-social" style="color: #1DA1F2;"></span></a>
+        </div>
+    </nav>
+    <div class="screen">
+        <div class="qr-screen">
+            <div class="qr-note text-center">QUÉT MÃ</div>
+            <div class="qr-note text-center">ĐỂ ĐIỂM DANH</div>
+            <div class="qr-box">
+                <div id="qrcode"></div>
+            </div>
+        </div>
+        <div class="members-screen">
+            <table class="table table-hover">
+                <thead class="text-center">
+                    <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">MSSV</th>
+                        <th scope="col">Họ và tên</th>
+                        <th scope="col">Chức vụ</th>
+                        <th scope="col">Giờ vào</th>
+                        <th scope="col">Giờ nghỉ</th>
+                        <th scope="col">Xóa</th>
+                    </tr>
+                </thead>
+                <tbody id="personList">
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.0/socket.io.js"
+        integrity="sha512-nYuHvSAhY5lFZ4ixSViOwsEKFvlxHMU2NHts1ILuJgOS6ptUmAGt/0i5czIgMOahKZ6JN84YFDA+mCdky7dD8A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/qrcode.min.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
