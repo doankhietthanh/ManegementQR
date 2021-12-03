@@ -26,55 +26,81 @@
             </div>
             <!-- List -->
             <ul class="nav-list">
-                <a href="#" class="nav-link ">
+                <a href="#" screenID="0" class="nav-link active">
                     <i class="fas fa-home icon"></i>
                     <span class="link-text">Home</span>
                 </a>
 
-                <a href="#" class="nav-link active">
+                <a href="#" screenID="1" class="nav-link">
                     <i class="fas fa-qrcode icon"></i>
                     <span class="link-text">QRcode</span>
                 </a>
 
-                <a href="./management.html" class="nav-link">
+                <a href="#" screenID="2" class="nav-link">
                     <i class="fas fa-user icon"></i>
                     <span class="link-text">Management</span>
-                </a>
-
-                <a href="./chat.html" class="nav-link">
-                    <i class="fas fa-comments icon"></i>
-                    <span class="link-text">Chat</span>
                 </a>
 
             </ul>
         </div>
     </div>
-    <div class="screen">
-        <div class="qr-screen">
-            <div class="qr-note text-center">QUÉT MÃ</div>
-            <div class="qr-note text-center">ĐỂ ĐIỂM DANH</div>
-            <div class="qr-box">
-                <div id="qrcode"></div>
+    <div id="main-screen">
+        <div class="slide">
+            <div id="home" screenID="0" class="screen">Home</div>
+
+            <div id="index" screenID="1" class="screen">
+                <div class="qr-screen">
+                    <div class="qr-note text-center">QUÉT MÃ</div>
+                    <div class="qr-note text-center">ĐỂ ĐIỂM DANH</div>
+                    <div class="qr-box">
+                        <div id="qrcode"></div>
+                    </div>
+                </div>
+                <div class="members-screen">
+
+                    <div class="">
+                        <table class="tableFixHead">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>MSSV</th>
+                                    <th>Họ và tên</th>
+                                    <th>Chức vụ</th>
+                                    <th>Giờ vào</th>
+                                    <th>Xóa</th>
+                                </tr>
+                            </thead>
+                            <tbody class="personList">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="management" screenID="2" class="screen">
+                <div class="members-screen">
+                    <div class="management-body">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>MSSV</th>
+                                    <th>Họ và tên</th>
+                                    <th>Chức vụ</th>
+                                    <th>Giờ vào</th>
+                                    <th>Xóa</th>
+                                </tr>
+                            </thead>
+                            <tbody class="personList2">
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
             </div>
         </div>
-        <div class="members-screen">
-            <table>
-                <thead>
-                    <tr>
-                        <th>STT</th>
-                        <th>MSSV</th>
-                        <th>Họ và tên</th>
-                        <th>Chức vụ</th>
-                        <th>Giờ vào</th>
-                        <th>Xóa</th>
-                    </tr>
-                </thead>
-                <tbody id="personList">
-                </tbody>
-            </table>
-        </div>
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.0/socket.io.js"
         integrity="sha512-nYuHvSAhY5lFZ4ixSViOwsEKFvlxHMU2NHts1ILuJgOS6ptUmAGt/0i5czIgMOahKZ6JN84YFDA+mCdky7dD8A=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>

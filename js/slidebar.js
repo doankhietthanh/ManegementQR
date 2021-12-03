@@ -24,3 +24,21 @@ function colorLink() {
 }
 
 linkColor.forEach((l) => l.addEventListener("click", colorLink));
+const mainScreen = document.querySelector("#main-screen");
+const slide = document.querySelector(".slide");
+
+let currentIndex = 0;
+const totalScreen = 3;
+
+const moveTo = (id) => {
+  const w = id - currentIndex;
+
+  slide.setAttribute("style", `transform:translateY(-${Math.abs(w)}00vh)`);
+};
+
+const link = document.querySelectorAll(".nav-link").forEach((v) => {
+  v.addEventListener("click", (e) => {
+    e.preventDefault();
+    moveTo(v.getAttribute("screenID"));
+  });
+});

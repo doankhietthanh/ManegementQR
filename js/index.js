@@ -8,7 +8,8 @@ fetch(endPoint + "/getQR")
     new QRCode(document.getElementById("qrcode"), result.data);
   });
 
-const personList = document.querySelector("#personList");
+const personList = document.querySelector(".personList");
+const personList2 = document.querySelector(".personList2");
 let roleStatus;
 
 const row = (number, personID, name, role, id, time) => {
@@ -38,6 +39,7 @@ const deleteScanner = (id) => {
     .then((res) => res.json())
     .then((result) => {
       personList.innerHTML = "";
+      personList2.innerHTML = "";
       if (result.success) {
         number = 0;
         result.data.forEach((data) => {
@@ -47,14 +49,14 @@ const deleteScanner = (id) => {
     });
 };
 
-const tbody = document.querySelector("tbody");
+const table = document.querySelector("table");
 const insertRow = (data) => {
   const date = new Date(data.time);
-
+  const n = ++number;
   personList.insertAdjacentHTML(
     "beforeend",
     row(
-      ++number,
+      n,
       data.studentID,
       data.name,
       data.role,
@@ -62,16 +64,31 @@ const insertRow = (data) => {
       date.toLocaleTimeString()
     )
   );
-  tbody.scrollTo(0, tbody.scrollHeight);
+  personList2.insertAdjacentHTML(
+    "beforeend",
+    row(
+      n,
+      data.studentID,
+      data.name,
+      data.role,
+      data.id,
+      date.toLocaleTimeString()
+    )
+  );
+  table.scrollTo(0, table.scrollHeight);
 };
 
 fetch(endPoint + "/getAllScanned")
   .then((res) => res.json())
   .then((result) => {
     if (result.success) {
-      result.data.forEach((data) => {
-        insertRow(data);
-      });
+      result.data
+        .sort((a, b) => {
+          return a.time - b.time;
+        })
+        .forEach((data) => {
+          insertRow(data);
+        });
     }
   });
 

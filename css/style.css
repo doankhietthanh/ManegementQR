@@ -22,7 +22,7 @@ li {
 body {
     font-family: "Quicksand", sans-serif;
     position: relative;
-    padding: 1rem 0 0 5rem;
+    padding: 0 0 0 5rem;
     transition: 0.5s;
     display: flex;
     flex-direction: column;
@@ -130,6 +130,7 @@ body {
 
 .qr-screen {
     margin: 0 40px;
+    padding: 30px;
     width: 70%;
     height: 500px;
     background-color: var(--second-color);
@@ -148,8 +149,8 @@ body {
 }
 .qr-box {
     margin: 20px;
-    width: 60%;
-    height: 300px;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -202,7 +203,6 @@ body {
 }
 
 table {
-    display: block;
     border-collapse: collapse;
     box-shadow: 0 5px 10px #e1e5ee;
     background-color: white;
@@ -254,14 +254,74 @@ td {
 tr:nth-child(even) {
     background-color: #f4f6fb;
 }
-
-tbody {
-    max-height: 80vh;
-    display: block;
+.tableFixHead {
     overflow-y: auto;
-    overflow-x: hidden;
-}
-thead {
-    width: 100%;
+    height: 500px;
     display: block;
+}
+.tableFixHead thead th {
+    position: sticky;
+    top: 0;
+}
+
+table.tableFixHead {
+    border-collapse: collapse;
+    width: 100%;
+}
+.tableFixHead th {
+    background: rgb(255, 255, 255);
+}
+
+@media only screen and (max-width: 1000px) {
+    .screen {
+        flex-direction: column;
+        overflow: hidden;
+    }
+    .qr-screen {
+        width: 50%;
+        height: auto;
+        margin: 0;
+    }
+    .qr-box {
+        margin: 10px;
+        width: auto;
+        height: auto;
+        padding: 10px;
+    }
+    #qrcode {
+        width: 200px;
+    }
+    #qrcode img {
+        width: 100%;
+    }
+}
+#main-screen {
+    height: 100vh;
+    overflow: hidden;
+}
+.slide {
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.management-body {
+    width: 1200px;
+}
+
+.management-body table {
+    width: 100%;
+}
+
+.management-body th,
+.management-body td {
+    width: 500px;
+}
+.management-body thead > tr {
+    position: relative;
+    display: block;
+}
+
+.management-body tbody {
+    display: block;
+    height: 500px;
+    overflow: auto;
 }
