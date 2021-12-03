@@ -7,7 +7,7 @@ fetch(endPoint + "/getQR")
   .then((result) => {
     new QRCode(document.getElementById("qrcode"), result.data);
   });
-
+const loading = document.querySelector(".cover-loading");
 const personList = document.querySelector(".personList");
 const personList2 = document.querySelector(".personList2");
 let roleStatus;
@@ -26,6 +26,7 @@ const row = (number, personID, name, role, id, time) => {
 };
 let number = 0;
 const deleteScanner = (id) => {
+  loading.setAttribute("style", "display: flex");
   fetch(endPoint + "/deleteScanner", {
     method: "POST",
     headers: {
@@ -38,6 +39,7 @@ const deleteScanner = (id) => {
   })
     .then((res) => res.json())
     .then((result) => {
+      loading.setAttribute("style", "display: none");
       personList.innerHTML = "";
       personList2.innerHTML = "";
       if (result.success) {

@@ -169,6 +169,7 @@ body {
 }
 
 .delete {
+    cursor: pointer;
     text-align: center;
 }
 
@@ -256,7 +257,7 @@ tr:nth-child(even) {
 }
 .tableFixHead {
     overflow-y: auto;
-    height: 500px;
+    max-height: 500px;
     display: block;
 }
 .tableFixHead thead th {
@@ -322,6 +323,37 @@ table.tableFixHead {
 
 .management-body tbody {
     display: block;
-    height: 500px;
     overflow: auto;
+    max-height: 600px;
+}
+.cover-loading {
+    position: absolute;
+    background: #00000063;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.loader {
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    animation: spin 2s linear infinite;
+}
+.table-index {
+    position: relative;
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
