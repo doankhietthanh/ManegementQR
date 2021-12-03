@@ -202,6 +202,7 @@ body {
 }
 
 table {
+    display: block;
     border-collapse: collapse;
     box-shadow: 0 5px 10px #e1e5ee;
     background-color: white;
@@ -252,4 +253,15 @@ td {
 
 tr:nth-child(even) {
     background-color: #f4f6fb;
+}
+
+tbody {
+    max-height: 80vh;
+    display: block;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+thead {
+    width: 100%;
+    display: block;
 }

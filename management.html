@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <link rel="stylesheet" type="text/css" href="./css/chat.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/v4-shims.css">
     <link rel="icon" href="./img/logo.svg">
@@ -33,57 +32,40 @@
                 </a>
 
                 <a href="./index.html" class="nav-link">
-                    <i class="fas fa-qrcode icon "></i>
+                    <i class="fas fa-qrcode icon"></i>
                     <span class="link-text">QRcode</span>
                 </a>
 
-                <a href="./management.html" class="nav-link">
-                    <i class="fas fa-user icon"></i>
+                <a href="./management.html" class="nav-link active">
+                    <i class="fas fa-user icon "></i>
                     <span class="link-text">Management</span>
                 </a>
 
-                <a href="./chat.html" class="nav-link active">
-                    <i class="fas fa-comments icon "></i>
+                <a href="./chat.html" class="nav-link">
+                    <i class="fas fa-comments icon"></i>
                     <span class="link-text">Chat</span>
                 </a>
 
             </ul>
         </div>
     </div>
-
-    <div class="container">
-        <!-- Title + Logo -->
-        <div class="chat-header">
-            <i class="fas fa-comments icon" style="font-size: 40px; color: #fff"></i>
-            <span class="title">Chatroom</span>
+    <div class="screen">
+        <div class="members-screen">
+            <table>
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>MSSV</th>
+                        <th>Họ và tên</th>
+                        <th>Chức vụ</th>
+                        <th>Giờ vào</th>
+                        <th>Xóa</th>
+                    </tr>
+                </thead>
+                <tbody id="personList">
+                </tbody>
+            </table>
         </div>
-
-        <div class="chat-main">
-            <!-- Members -->
-            <div class="members" id="members">
-                <div class="title-members">MEMBERS</div>
-                <ul></ul>
-            </div>
-            <!-- Chat screen -->
-            <div class="chat-screen">
-                <div class="chat-box">
-                    <div class="chat-message" id="chat-message"></div>
-                </div>
-                <div class="chat-input">
-                    <form class="input-text">
-                        <input type="file" id="imgUpload" hidden accept="image/*" />
-                        <input type="text" id="text" />
-                        <div class="btn" id="sendImg">
-                            <i class="far fa-image"></i>
-                        </div>
-                        <button class="btn" id="send">
-                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.0/socket.io.js"
         integrity="sha512-nYuHvSAhY5lFZ4ixSViOwsEKFvlxHMU2NHts1ILuJgOS6ptUmAGt/0i5czIgMOahKZ6JN84YFDA+mCdky7dD8A=="
