@@ -42,9 +42,13 @@ const deleteScanner = (id) => {
       personList2.innerHTML = "";
       if (result.success) {
         number = 0;
-        result.data.forEach((data) => {
-          insertRow(data);
-        });
+        result.data
+          .sort((a, b) => {
+            return a.time - b.time;
+          })
+          .forEach((data) => {
+            insertRow(data);
+          });
       }
     });
 };
