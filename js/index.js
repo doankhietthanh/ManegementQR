@@ -1,18 +1,23 @@
 const endPoint = "https://qr-server-191.herokuapp.com";
 // const endPoint = "http://127.0.0.1:3000";
 
+//Use socket.io to connect to the server by endPoint
 var socket = io(endPoint);
 
+//getQR from server
 fetch(endPoint + "/getQR")
   .then((res) => res.json())
   .then((result) => {
     new QRCode(document.getElementById("qrcode"), result.data);
   });
 
+//Declare variables from html file
 const loading = document.querySelector(".cover-loading");
 const personList = document.querySelector(".personList");
 const personList2 = document.querySelector(".personList2");
+const table = document.querySelector("table");
 
+//When person scan app, this function will add data to each row on the Management table
 let roleStatus;
 const row = (number, personID, name, role, id, time) => {
   if (role == "Student") roleStatus = "status-student";
@@ -27,6 +32,7 @@ const row = (number, personID, name, role, id, time) => {
   </tr>`;
 };
 
+//function deleteScanner
 let number = 0;
 const deleteScanner = (id) => {
   loading.setAttribute("style", "display: flex");
@@ -58,7 +64,7 @@ const deleteScanner = (id) => {
     });
 };
 
-const table = document.querySelector("table");
+//When you scan QRCode, Management table will update data in here and push on server
 const insertRow = (data) => {
   const date = new Date(data.time);
   const n = ++number;
@@ -87,6 +93,7 @@ const insertRow = (data) => {
   table.scrollTo(0, table.scrollHeight);
 };
 
+//getAllScanned from server
 fetch(endPoint + "/getAllScanned")
   .then((res) => res.json())
   .then((result) => {
@@ -100,7 +107,7 @@ fetch(endPoint + "/getAllScanned")
         });
     }
   });
-
+//Client receive data from server by event "scan"
 socket.on("scan", (data) => {
   insertRow(data);
 });
