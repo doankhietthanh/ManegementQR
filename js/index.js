@@ -2,16 +2,18 @@ const endPoint = "https://qr-server-191.herokuapp.com";
 // const endPoint = "http://127.0.0.1:3000";
 
 var socket = io(endPoint);
+
 fetch(endPoint + "/getQR")
   .then((res) => res.json())
   .then((result) => {
     new QRCode(document.getElementById("qrcode"), result.data);
   });
+
 const loading = document.querySelector(".cover-loading");
 const personList = document.querySelector(".personList");
 const personList2 = document.querySelector(".personList2");
-let roleStatus;
 
+let roleStatus;
 const row = (number, personID, name, role, id, time) => {
   if (role == "Student") roleStatus = "status-student";
   else if (role == "Teacher") roleStatus = "status-teacher";
@@ -24,6 +26,7 @@ const row = (number, personID, name, role, id, time) => {
   <td class="delete"><i onclick="deleteScanner(${id})" class="fas fa-times-circle"></i></i></td>
   </tr>`;
 };
+
 let number = 0;
 const deleteScanner = (id) => {
   loading.setAttribute("style", "display: flex");
